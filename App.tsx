@@ -2,7 +2,14 @@ import { StatusBar } from 'expo-status-bar';
 import React, {useEffect, useState} from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StreamChat } from 'stream-chat';
-import { OverlayProvider, Chat, ChannelList, Channel } from "stream-chat-expo"
+import { 
+  OverlayProvider,
+  Chat,
+  ChannelList,
+  Channel,
+  MessageList,
+  MessageInput
+ } from "stream-chat-expo"
 import { Text } from 'react-native';
 
 
@@ -61,8 +68,10 @@ export default function App() {
 
         {selectedChannel ? (
           <Channel channel={selectedChannel}>
+          <MessageList />
+          <MessageInput />
           <Text
-           style={{ marginTop: 50 }}
+           style={{ margin: 50 }}
            onPress={() => setSelectedChannel(null)}>
              Go Back
           </Text>
